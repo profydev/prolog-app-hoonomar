@@ -150,6 +150,14 @@ const CollapseMenuItem = styled(MenuItemButton)`
   @media (min-width: ${breakpoint("desktop")}) {
     display: flex;
   }
+
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  &.collapsed img {
+    transform: rotate(180deg);
+  }
 `;
 
 export function SidebarNavigation() {
@@ -196,6 +204,7 @@ export function SidebarNavigation() {
               onClick={() => alert("Support")}
             />
             <CollapseMenuItem
+              className={isSidebarCollapsed ? "collapsed" : ""}
               text="Collapse"
               iconSrc="/icons/arrow-left.svg"
               isCollapsed={isSidebarCollapsed}
